@@ -1,48 +1,40 @@
 var words = ["ground", "control", "to", "major", "tom"];
 
-// map(words, function(word) {
-//   return word.length;
-// });
-
-// map(words, function(word) {
-//   return word.toUpperCase();
-// });
-
-// map(words, function(word) {
-//   return word.split('').reverse().join('');
-// });
-
-function mapLength(words) {
+function map(words, find) {
     var array = new Array(words.length);
-    for(var i = 0; i < words.length; i++) {
-        array[i] = words[i].length;
+    for(var i = 0 ; i < words.length ; i++) {
+      array[i] = find(words[i]);
     }
-    return array;  
-}
-console.log(mapLength(words));
-
-// var array = words.map(function (words) {
-//   var array = new Array(words.length);
-//   for(var i = 0 ; i < words.length ; i++) {
-//     array[i] = words[i].length;
-//   }
-//   return array;
-// });
-
-function maptoUpperCase(words) {
+    return array;
+  }
+  function findLength(word) {
+    return word.length;
+  }
+  console.log(map(words,findLength));
+  
+  
+  //2nd function
+  function mapToUpperCase(words, upperCase) {
     var array = new Array(words.length);
-    for(var i = 0; i < words.length; i++) {
-        array[i] = words[i].toUpperCase();
+    for(var i = 0 ; i < words.length ; i++) {
+      array[i] = upperCase(words[i]);
     }
-    return array;  
-}
-console.log(maptoUpperCase(words));
-
-function srj(words) {
+    return array;
+  }
+  function toUpper(word) {
+    return word.toUpperCase();
+  }
+  console.log(mapToUpperCase(words, toUpper));
+  
+  //3rd function
+  function mapSRJ(words, sRJ) {
     var array = new Array(words.length);
-    for(var i = 0; i < words.length; i++) {
-        array[i] = words[i].split('').reverse().join('');
+    for(var i = 0 ; i < words.length ; i++) {
+      array[i] = splitReverseJoin(words[i]);
     }
-    return array;  
-}
-console.log(srj(words));
+    return array;
+  }
+  function splitReverseJoin(word){
+    return word.split('').reverse().join('');
+  }
+  console.log(mapSRJ(words, splitReverseJoin));
